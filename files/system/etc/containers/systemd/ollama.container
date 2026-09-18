@@ -1,0 +1,14 @@
+[Unit]
+Description=Ollama Service
+
+[Container]
+Image=docker.io/ollama/ollama:latest
+Network=ai.network
+Volume=ollama-data.volume:/root/.ollama
+PublishPort=127.0.0.1:11434:11434
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

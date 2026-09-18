@@ -1,0 +1,28 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/modules-list-v1.json
+
+modules:
+  - type: dnf
+    repos:
+      copr:
+        - avengemedia/dms
+    install:
+      packages:
+        - dms
+        - dms-greeter
+        - kitty
+        - niri
+        - waydroid
+
+  - type: default-flatpaks
+    configurations:
+      - notify: true
+        scope: system
+        install:
+          - com.brave.Browser
+          - org.telegram.desktop
+          - md.obsidian.Obsidian
+          - org.onlyoffice.desktopeditors
+          - org.keepassxc.KeePassXC
+          - eu.betterbird.Betterbird
+          - com.usebottles.bottles

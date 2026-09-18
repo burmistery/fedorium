@@ -1,0 +1,24 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: dnf
+    group-install:
+      packages:
+        - virtualization
+        - development-tools
+
+    install:
+      packages:
+        - distrobox
+        - podman
+        - just
+
+  - type: default-flatpaks
+    configurations:
+      - notify: true
+        scope: system
+        install:
+          - com.visualstudio.code
+          - io.podman_desktop.PodmanDesktop
+          - org.remmina.Remmina

@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: default-flatpaks
+    configurations:
+      - notify: true
+        scope: system
+        install:
+          - com.valvesoftware.Steam
+          - com.heroicgameslauncher.hgl
