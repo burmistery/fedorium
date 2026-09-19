@@ -6,5 +6,5 @@ autopart
 rootpw --lock
 
 bootc \
-    --source-imgref=registry:dhcr.io/burmistery/fedorium:latest \
-    --target-imgref=dhcr.io/burmistery/fedorium:latest
+    --source-imgref=registry:ghcr.io/burmistery/fedorium:latest \
+    --target-imgref=ghcr.io/burmistery/fedorium:latest
