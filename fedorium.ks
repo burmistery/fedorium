@@ -5,6 +5,4 @@ autopart
 
 rootpw --lock
 
-bootc \
-    --source-imgref=registry:ghcr.io/burmistery/fedorium:latest \
-    --target-imgref=ghcr.io/burmistery/fedorium:latest
+bootc --source-imgref=registry:ghcr.io/burmistery/fedorium:latest --target-imgref=ghcr.io/burmistery/fedorium:latest
