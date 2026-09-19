@@ -7,6 +7,7 @@ modules:
       copr:
         - avengemedia/dms
     install:
+      install-weak-deps: false
       packages:
         - dms
         - dms-greeter
@@ -26,3 +27,12 @@ modules:
           - org.keepassxc.KeePassXC
           - eu.betterbird.Betterbird
           - com.usebottles.bottles
+
+  - type: systemd
+    system:
+      enabled:
+        - greetd.service
+
+  - type: script
+    snippets:
+      - systemctl --global add-wants niri.service dms.service

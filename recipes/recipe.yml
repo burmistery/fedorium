@@ -18,6 +18,7 @@ modules:
 
   - type: dnf
     install:
+      install-weak-deps: false
       packages:
         - zsh
         - fzf

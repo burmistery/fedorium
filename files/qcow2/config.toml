@@ -1,0 +1,7 @@
+[[customizations.user]]
+name = "user"
+password = "debug"
+groups = ["wheel"]
+
+[customizations.kernel]
+append = "systemd.debug-shell=1"

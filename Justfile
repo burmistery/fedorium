@@ -26,18 +26,26 @@ build-qcow2:
         --rm \
         --privileged \
         -v ./output:/output \
+        -v ./files/qcow2/:/files:ro \
         -v /var/lib/containers/storage:/var/lib/containers/storage \
         ghcr.io/osbuild/image-builder-cli:latest \
         build qcow2 \
+        --blueprint /files/config.toml \
         --bootc-ref {{ registry }}/{{ image }}:{{ tag }} \
         --output-dir /output \
         --bootc-default-fs btrfs \
         --output-name {{ image }}
     sudo podman rmi {{ registry }}/{{ image }}:{{ tag }}
+    sudo chmod 777 output/{{ image }}.qcow2
+
+local-build-qcow2:
+    just --set registry localhost build-qcow2
 
 run-vm:
     qemu-system-x86_64 \
         -m 4096 \
         -enable-kvm \
-        -device virtio-vga -serial stdio \
+        -display gtk,gl=on \
+        -device virtio-vga-gl \
+        -serial stdio \
         -drive file=./output/{{ image }}.qcow2

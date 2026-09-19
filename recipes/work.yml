@@ -4,11 +4,13 @@
 modules:
   - type: dnf
     group-install:
+      install-weak-deps: false
       packages:
         - virtualization
         - development-tools
 
     install:
+      install-weak-deps: false
       packages:
         - distrobox
         - podman
