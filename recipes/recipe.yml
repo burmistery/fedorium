@@ -24,6 +24,7 @@ modules:
         - fzf
         - bat
         - zoxide
+        - glibc-all-langpacks
 
   - type: default-flatpaks
     configurations:
