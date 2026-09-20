@@ -41,20 +41,28 @@ build-qcow2:
 local-build-qcow2:
     just --set registry localhost build-qcow2
 
-run-qcow2 qcow2="./output/{{ image }}.qcow2":
+run-qcow2 qcow2="./output/fedorium.qcow2":
     qemu-system-x86_64 \
-        -m 4096 \
         -enable-kvm \
+        -m 4G \
         -display gtk,gl=on \
         -device virtio-vga-gl \
         -serial stdio \
         -drive file="{{ qcow2 }}",format="qcow2"
 
 run-iso iso:
+    qemu-img create -f qcow2 "/tmp/{{ image }}.qcow2" 32G
+    qemu-img create -f raw "/tmp/oemdrv.img" 64M
+    mkfs.vfat -n "OEMDRV" "/tmp/oemdrv.img"
+    mcopy -i "/tmp/oemdrv.img" "ks.cfg" ::/ks.cfg
+
     qemu-system-x86_64 \
-        -m 4096 \
         -enable-kvm \
+        -m 4G \
         -display gtk,gl=on \
         -device virtio-vga-gl \
         -serial stdio \
-        -cdrom "{{ iso }}"
+        -cdrom "{{ iso }}" \
+        -drive file="/tmp/{{ image }}.qcow2",format=qcow2 \
+        -drive file="/tmp/oemdrv.img",format=raw
+    rm -f "/tmp/{{ image }}.qcow2"
