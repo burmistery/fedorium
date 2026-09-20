@@ -37,3 +37,4 @@ modules:
   - type: script
     snippets:
       - systemctl --global add-wants niri.service dms.service
+      - mv /usr/share/doc/niri/wiki/Layer‐Shell-Components.md /usr/share/doc/niri/wiki/Layer-Shell-Components.md
