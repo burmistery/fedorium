@@ -11,30 +11,77 @@ modules:
     snippets:
       - echo 'tsflags=nodocs' >> /etc/dnf/dnf.conf
 
-  - from-file: desktop.yml
-  - from-file: games.yml
-  - from-file: work.yml
-
   - type: files
     files:
       - source: system
         destination: /
 
   - type: dnf
+    repos:
+      copr:
+        # desktop
+        - avengemedia/dms
+    group-install:
+      install-weak-deps: false
+      packages:
+        # work
+        - virtualization
     install:
       install-weak-deps: false
       packages:
+        # base
         - zsh
         - fzf
         - bat
         - zoxide
         - glibc-all-langpacks
 
+        # desktop
+        - dms
+        - dms-greeter
+        - kitty
+        - niri
+        - waydroid
+        - flatpak
+
+        # work
+        - distrobox
+        - podman
+
   - type: default-flatpaks
     configurations:
       - notify: true
         scope: system
         install:
+          # base
           - io.neovim.nvim
+
+          # desktop
+          - com.brave.Browser
+          - org.telegram.desktop
+          - md.obsidian.Obsidian
+          - org.onlyoffice.desktopeditors
+          - org.keepassxc.KeePassXC
+          - eu.betterbird.Betterbird
+          - com.usebottles.bottles
+          - io.podman_desktop.PodmanDesktop
+
+          # games
+          - com.valvesoftware.Steam
+          - com.heroicgameslauncher.hgl
+
+          # work
+          - com.visualstudio.code
+
+  - type: systemd
+    system:
+      enabled:
+        # desktop
+        - greetd.service
+
+  - type: script
+    snippets:
+      # desktop
+      - systemctl --global add-wants niri.service dms.service
 
   - type: signing
