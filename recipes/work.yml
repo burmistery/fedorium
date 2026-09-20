@@ -23,4 +23,3 @@ modules:
         install:
           - com.visualstudio.code
           - io.podman_desktop.PodmanDesktop
-          - org.remmina.Remmina

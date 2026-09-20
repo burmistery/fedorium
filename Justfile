@@ -59,6 +59,7 @@ run-iso iso:
     qemu-system-x86_64 \
         -enable-kvm \
         -m 4G \
+        -smp 2 \
         -display gtk,gl=on \
         -device virtio-vga-gl \
         -serial stdio \
