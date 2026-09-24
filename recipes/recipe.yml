@@ -21,11 +21,6 @@ modules:
       copr:
         # desktop
         - avengemedia/dms
-    group-install:
-      install-weak-deps: false
-      packages:
-        # work
-        - virtualization
     install:
       install-weak-deps: false
       packages:
@@ -34,7 +29,9 @@ modules:
         - fzf
         - bat
         - zoxide
+        - chezmoi
         - glibc-all-langpacks
+        - xdg-user-dirs
 
         # desktop
         - dms
@@ -42,11 +39,14 @@ modules:
         - kitty
         - niri
         - waydroid
+        - plymouth
         - flatpak
 
         # work
         - distrobox
         - podman
+        - qemu-kvm
+        - qemu-img
 
   - type: default-flatpaks
     configurations:
@@ -57,7 +57,7 @@ modules:
           - io.neovim.nvim
 
           # desktop
-          - com.brave.Browser
+          - com.vivaldi.Vivaldi
           - org.telegram.desktop
           - md.obsidian.Obsidian
           - org.onlyoffice.desktopeditors

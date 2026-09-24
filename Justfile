@@ -52,7 +52,7 @@ run-qcow2 qcow2=qcow2:
         -snapshot \
         -drive file="{{ qcow2 }}",format="qcow2"
 
-run-iso iso:
+run-iso iso="$(find . -maxdepth 1 -type f -name '*.iso' -print -quit)":
     qemu-img create -f "qcow2" "{{ qcow2 }}" 32G
     qemu-img create -f "raw" "/tmp/oemdrv.img" 64M
     mkfs.vfat -n "OEMDRV" "/tmp/oemdrv.img"
