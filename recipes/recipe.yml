@@ -32,12 +32,17 @@ modules:
         - chezmoi
         - glibc-all-langpacks
         - xdg-user-dirs
+        - pciutils
+        - usbutils
+        - upower
 
         # wireless
         - wpa_supplicant
         - NetworkManager-wifi
         - bluez
         - bluez-tools
+        - iwlwifi-mvm-firmware
+        - iwlbluetooth-firmware
 
         # sound
         - pipewire
