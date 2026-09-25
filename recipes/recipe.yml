@@ -33,6 +33,21 @@ modules:
         - glibc-all-langpacks
         - xdg-user-dirs
 
+        # wireless
+        - wpa_supplicant
+        - NetworkManager-wifi
+        - bluez
+        - bluez-tools
+
+        # sound
+        - pipewire
+        - pipewire-alsa
+        - pipewire-pulseaudio
+        - pipewire-utils
+        - wireplumber
+        - alsa-utils
+        - pipewire-plugin-bluez
+
         # desktop
         - dms
         - dms-greeter
