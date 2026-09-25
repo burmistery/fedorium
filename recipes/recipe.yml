@@ -46,7 +46,6 @@ modules:
         - pipewire-utils
         - wireplumber
         - alsa-utils
-        - pipewire-plugin-bluez
 
         # desktop
         - dms
