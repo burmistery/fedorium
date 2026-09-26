@@ -21,6 +21,9 @@ modules:
       copr:
         # desktop
         - avengemedia/dms
+      files:
+        # work
+        - https://packages.microsoft.com/yumrepos/vscode/config.repo
     install:
       install-weak-deps: false
       packages:
@@ -35,6 +38,8 @@ modules:
         - pciutils
         - usbutils
         - upower
+        - libnotify
+        - neovim
 
         # wireless
         - wpa_supplicant
@@ -62,8 +67,11 @@ modules:
         - flatpak
 
         # work
+        - git
+        - code
         - distrobox
         - podman
+        - podman-compose
         - qemu-kvm
         - qemu-img
 
@@ -72,22 +80,13 @@ modules:
       - notify: true
         scope: system
         install:
-          # base
-          - io.neovim.nvim
-
           # desktop
           - com.vivaldi.Vivaldi
           - org.telegram.desktop
           - md.obsidian.Obsidian
-          - org.onlyoffice.desktopeditors
           - org.keepassxc.KeePassXC
-          - eu.betterbird.Betterbird
           - com.usebottles.bottles
           - io.podman_desktop.PodmanDesktop
-
-          # games
-          - com.valvesoftware.Steam
-          - com.heroicgameslauncher.hgl
 
           # work
           - com.visualstudio.code
