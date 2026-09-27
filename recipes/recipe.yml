@@ -40,6 +40,9 @@ modules:
         - upower
         - libnotify
         - neovim
+        - fastfetch
+        - lshw
+        - iio-sensor-proxy
 
         # wireless
         - wpa_supplicant
@@ -60,6 +63,7 @@ modules:
         # desktop
         - dms
         - dms-greeter
+        - dsearch
         - kitty
         - niri
         - waydroid
@@ -82,14 +86,10 @@ modules:
         install:
           # desktop
           - com.vivaldi.Vivaldi
-          - org.telegram.desktop
           - md.obsidian.Obsidian
           - org.keepassxc.KeePassXC
           - com.usebottles.bottles
           - io.podman_desktop.PodmanDesktop
-
-          # work
-          - com.visualstudio.code
 
   - type: systemd
     system:
