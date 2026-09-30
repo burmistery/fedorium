@@ -86,10 +86,6 @@ modules:
         install:
           # desktop
           - com.vivaldi.Vivaldi
-          - md.obsidian.Obsidian
-          - org.keepassxc.KeePassXC
-          - com.usebottles.bottles
-          - io.podman_desktop.PodmanDesktop
 
   - type: systemd
     system:
