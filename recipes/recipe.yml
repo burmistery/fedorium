@@ -28,52 +28,56 @@ modules:
       install-weak-deps: false
       packages:
         # base
-        - zsh
-        - fzf
-        - bat
-        - zoxide
         - chezmoi
+        - bat
+        - fastfetch
+        - fzf
         - glibc-all-langpacks
-        - xdg-user-dirs
-        - pciutils
-        - usbutils
-        - upower
         - libnotify
         - neovim
-        - fastfetch
-        - lshw
-        - iio-sensor-proxy
+        - xdg-user-dirs
+        - zoxide
+        - zsh
 
-        # wireless
-        - wpa_supplicant
-        - NetworkManager-wifi
+        # hardware
+        - brightnessctl
+        - iio-sensor-proxy
+        - lshw
+        - pciutils
+        - playerctl
+        - upower
+        - usbutils
+
+        ## wireless
         - bluez
         - bluez-tools
         - iwlwifi-mvm-firmware
         - iwlbluetooth-firmware
+        - NetworkManager-wifi
+        - wpa_supplicant
 
-        # sound
+        ## sound
+        - alsa-utils
         - pipewire
         - pipewire-alsa
         - pipewire-pulseaudio
         - pipewire-utils
         - wireplumber
-        - alsa-utils
 
         # desktop
         - dms
         - dms-greeter
         - dsearch
+        - flatpak
         - kitty
         - niri
-        - waydroid
         - plymouth
-        - flatpak
+        - waydroid
 
         # work
-        - git
         - code
         - distrobox
+        - git
         - podman
         - podman-compose
         - qemu-kvm
