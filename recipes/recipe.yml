@@ -73,7 +73,7 @@ modules:
         - flatpak
         - kitty
         - niri
-        - plymouth-theme-solar
+        - plymouth-theme-spinfinity
         - waydroid
 
         # work
@@ -104,7 +104,7 @@ modules:
       # desktop
       - systemctl --global add-wants niri.service dms.service
       - rm -f /usr/share/applications/nvim.desktop
-      - plymouth-set-default-theme solar
+      - plymouth-set-default-theme spinfinity
 
   - type: initramfs
   - type: signing
