@@ -28,13 +28,15 @@ modules:
       install-weak-deps: false
       packages:
         # base
-        - chezmoi
         - bat
+        - chezmoi
         - fastfetch
         - fzf
         - glibc-all-langpacks
         - libnotify
+        - mtools
         - neovim
+        - parted
         - xdg-user-dirs
         - zoxide
         - zsh
@@ -51,8 +53,8 @@ modules:
         ## wireless
         - bluez
         - bluez-tools
-        - iwlwifi-mvm-firmware
         - iwlbluetooth-firmware
+        - iwlwifi-mvm-firmware
         - NetworkManager-wifi
         - wpa_supplicant
 
@@ -71,7 +73,7 @@ modules:
         - flatpak
         - kitty
         - niri
-        - plymouth
+        - plymouth-theme-solar
         - waydroid
 
         # work
@@ -101,5 +103,8 @@ modules:
     snippets:
       # desktop
       - systemctl --global add-wants niri.service dms.service
+      - rm -f /usr/share/applications/nvim.desktop
+      - plymouth-set-default-theme solar
 
+  - type: initramfs
   - type: signing

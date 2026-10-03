@@ -1,7 +1,8 @@
 registry := "ghcr.io/burmistery"
 image := "fedorium"
 tag := "latest"
-qcow2 := "output/" + image + ".qcow2"
+qcow2_dir := "output"
+qcow2 := qcow2_dir + "/" + image + ".qcow2"
 _:
     just --lit
 
@@ -21,12 +22,12 @@ generate-iso-image:
     bluebuild generate-iso -B podman image "{{ registry }}/{{ image }}:{{ tag }}"
 
 build-qcow2:
-    mkdir -p output
     podman save "{{ registry }}/{{ image }}:{{ tag }}" | sudo podman load
+    mkdir -p "{{ qcow2_dir }}"
     sudo podman run \
         --rm \
         --privileged \
-        -v "./output:/output" \
+        -v "{{ qcow2_dir }}:/output" \
         -v "./files/qcow2/:/files:ro" \
         -v "/var/lib/containers/storage:/var/lib/containers/storage" \
         ghcr.io/osbuild/image-builder-cli:latest \
@@ -43,6 +44,8 @@ local-build-qcow2:
     just --set registry localhost build-qcow2
 
 run-qcow2 qcow2=qcow2:
+    [[ -f "{{ qcow2 }}" ]] || just local-build-qcow2
+
     qemu-system-x86_64 \
         -enable-kvm \
         -m 4G \
@@ -53,6 +56,7 @@ run-qcow2 qcow2=qcow2:
         -drive file="{{ qcow2 }}",format="qcow2"
 
 run-iso iso="$(find . -maxdepth 1 -type f -name '*.iso' -print -quit)":
+    mkdir -p "{{ qcow2_dir }}"
     qemu-img create -f "qcow2" "{{ qcow2 }}" 32G
     qemu-img create -f "raw" "/tmp/oemdrv.img" 64M
     mkfs.vfat -n "OEMDRV" "/tmp/oemdrv.img"
