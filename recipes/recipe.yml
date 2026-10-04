@@ -33,6 +33,7 @@ modules:
         # base
         - chezmoi
         - glibc-all-langpacks
+        - libcanberra
         - libnotify
         - mtools
         - xdg-desktop-portal
@@ -121,7 +122,6 @@ modules:
       - systemctl --global add-wants niri.service dms.service
       - rm -f /usr/share/applications/nvim.desktop
       - plymouth-set-default-theme spinfinity
-      - xdg-mime default yazi.desktop inode/directory
 
   - type: initramfs
   - type: signing
