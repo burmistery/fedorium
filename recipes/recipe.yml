@@ -35,7 +35,6 @@ modules:
         - glibc-all-langpacks
         - libnotify
         - mtools
-        - nerd-fonts
         - xdg-desktop-portal
         - xdg-desktop-portal-gtk
         - xdg-user-dirs
@@ -82,6 +81,7 @@ modules:
         - fd
         - ffmpeg
         - fzf
+        - jetbrains-mono-fonts-all
         - ImageMagick
         - neovim
         - poppler
