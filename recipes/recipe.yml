@@ -21,6 +21,9 @@ modules:
       copr:
         # desktop
         - avengemedia/dms
+
+        # shell
+        - lihaohong/yazi
       files:
         # work
         - https://packages.microsoft.com/yumrepos/vscode/config.repo
@@ -28,18 +31,15 @@ modules:
       install-weak-deps: false
       packages:
         # base
-        - bat
         - chezmoi
-        - fastfetch
-        - fzf
         - glibc-all-langpacks
         - libnotify
         - mtools
-        - neovim
-        - parted
+        - nerd-fonts
+        - xdg-desktop-portal
+        - xdg-desktop-portal-gtk
         - xdg-user-dirs
-        - zoxide
-        - zsh
+        - xdg-utils
 
         # hardware
         - brightnessctl
@@ -76,6 +76,22 @@ modules:
         - plymouth-theme-spinfinity
         - waydroid
 
+        # shell
+        - bat
+        - fastfetch
+        - fd
+        - ffmpeg
+        - fzf
+        - ImageMagick
+        - neovim
+        - poppler
+        - resvg
+        - rg
+        - wl-clipboard
+        - yazi
+        - zoxide
+        - zsh
+
         # work
         - code
         - distrobox
@@ -105,6 +121,7 @@ modules:
       - systemctl --global add-wants niri.service dms.service
       - rm -f /usr/share/applications/nvim.desktop
       - plymouth-set-default-theme spinfinity
+      - xdg-mime default yazi.desktop inode/directory
 
   - type: initramfs
   - type: signing

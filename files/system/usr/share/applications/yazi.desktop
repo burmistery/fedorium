@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Yazi
+Comment=Terminal file manager
+Exec=kitty --class yazi -e yazi %U
+Terminal=false
+Type=application
+MimeType=inode/directory;
+Categories=FileManager;
